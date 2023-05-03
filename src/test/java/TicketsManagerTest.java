@@ -48,4 +48,32 @@ public class TicketsManagerTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+
+    @Test
+    public void shouldFindIfNoneFit() {
+        Tickets[] expected = {};
+        Tickets[] actual = manager.findAll("VKO", "AER");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void shouldFindSeveralTickets() {
+        Tickets[] expected = {ticket1, ticket2};
+        Tickets[] actual = manager.findAll("LED", "OVB");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
+    @Test
+    public void shouldFindOneTicket() {
+        Tickets[] expected = {ticket5};
+        Tickets[] actual = manager.findAll("OVB", "DME");
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
 }
